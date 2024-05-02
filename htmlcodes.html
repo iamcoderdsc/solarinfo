@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Solar System Data</title>
+  <script type="text/javascript">
+    // Define the data for each planet
+    var planets = [
+      {
+        name: "Mercury",
+        mass: 3.3011e23, // kg
+        radius: 2.4405e6, // m
+        density: 5.427, // g/cm^3
+        distanceFromSun: 57.9e9, // km
+        orbitalPeriod: 87.97, // days
+        rotationPeriod: 58.646, // days
+        moons: []
+      },
+      {
+        name: "Venus",
+        mass: 4.8675e24, // kg
+        radius: 6.0518e6, // m
+        density: 5.243, // g/cm^3
+        distanceFromSun: 108.2e9, // km
+        orbitalPeriod: 224.7, // days
+        rotationPeriod: -243.02, // days
+        moons: []
+      },
+      {
+        name: "Earth",
+        mass: 5.972e24, // kg
+        radius: 6.3781e6, // m
+        density: 5.514, // g/cm^3
+        distanceFromSun: 149.6e9, // km
+        orbitalPeriod: 365.25, // days
+        rotationPeriod: 23.9345, // hours
+        moons: ["Moon"]
+      },
+      {
+        name: "Mars",
+        mass: 6.4171e23, // kg
+        radius: 3.3962e6, // m
+        density: 3.934, // g/cm^3
+        distanceFromSun: 227.9e9, // km
+        orbitalPeriod: 687.0, // days
+        rotationPeriod: 24.6229, // hours
+        moons: ["Phobos", "Deimos"]
+      },
+      {
+        name: "Jupiter",
+        mass: 1.898e27, // kg
+        radius: 7.1492e7, // m
+        density: 1.326, // g/cm^3
+        distanceFromSun: 778.5e9, // km
+        orbitalPeriod: 4333, // days
+        rotationPeriod: 9.925, // hours
+        moons: ["Io", "Europa", "Ganymede", "Callisto"]
+      },
+      {
+        name: "Saturn",
+        mass: 5.6846e26, // kg
+        radius: 6.0268e7, // m
+        density: 0.687, // g/cm^3
+        distanceFromSun: 1433e9, // km
+        orbitalPeriod: 10759, // days
+        rotationPeriod: 10.75, // hours
+        moons: ["Titan", "Enceladus", "Rhea", "Iapetus"]
+      },
+      {
+        name: "Uranus",
+        mass: 8.683e25, // kg
+        radius: 2.5559e7, // m
+        density: 1.27, // g/cm^3
+        distanceFromSun: 2872e9, // km
+        orbitalPeriod: 30688, // days
+        rotationPeriod: -17.24, // hours
+        moons: ["Titania", "Oberon", "Umbriel", "Ariel"]
+      },
+      {
+        name: "Neptune",
+        mass: 1.024e26, // kg
+        radius: 2.4764e7, // m
+        density: 1.638, // g/cm^3
+        distanceFromSun: 4504e9, // km
+        orbitalPeriod: 60190, // days
+        rotationPeriod: 16.11, // hours
+        moons: ["Triton", "Proteus", "Nereid"]
+      }
+    ];
+
+    // Create a function to find all the data for a given planet
+    function findPlanetData(planetName) {
+      for (var i = 0; i < planets.length; i++) {
+        if (planets[i].name === planetName) {
+          return planets[i];
+        }
+      }
+
+      return null;
+    }
+
+    // Get the planet name from the user
+    var planetName = prompt("Enter the name of a planet");
+
+    // Find the data for the planet
+    var planetData = findPlanetData(planetName);
+
+    // Output the data for the planet
+    if (planetData) {
+      document.write("<h1>" + planetData.name + "</h1>");
+      document.write("<ul>");
+      document.write("<li>Mass: " + planetData.mass + " kg</li>");
+      document.write("<li>Radius: " + planetData.radius + " m</li>");
+      document.write("<li>Density: " + planetData.density + " g/cm^3</li>");
+      document.write("<li>Distance from Sun: " + planetData.distanceFromSun + " km</li>");
+      document.write("<li>Orbital Period: " + planetData.orbitalPeriod + " days</li>");
+      document.write("<li>Rotation Period: " + planetData.rotationPeriod + " hours</li>");
+      document.write("<li>Moons: " + planetData.moons.join(", ") + "</li>");
+      document.write("</ul>");
+    } else {
+      document.write("No data found for the planet " + planetName);
+    }
+  </script>
+</head>
+<body>
+</body>
+</html>
